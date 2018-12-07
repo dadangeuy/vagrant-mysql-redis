@@ -9,10 +9,13 @@ Vagrant.configure("2") do |config|
       vb.gui = false
       vb.memory = "512"
       vb.cpus = 2
-      vb.customize ["modifyvm", :id, "--ioapic", "on"]
-      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.customize [
+        "modifyvm", :id,
+        "--ioapic", "on",
+        "--cpuexecutioncap", "50",
+        "--natdnshostresolver1", "on",
+        "--natdnsproxy1", "on"
+      ]
     end
     db.vm.provision "shell", privileged: false, path: "provision/mysql/master.mysql.sh"
     db.vm.provision "shell", privileged: false, path: "dataset/import-dataset.sh"
@@ -28,10 +31,13 @@ Vagrant.configure("2") do |config|
         vb.gui = false
         vb.memory = "512"
         vb.cpus = 2
-        vb.customize ["modifyvm", :id, "--ioapic", "on"]
-        vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize [
+          "modifyvm", :id,
+          "--ioapic", "on",
+          "--cpuexecutioncap", "50",
+          "--natdnshostresolver1", "on",
+          "--natdnsproxy1", "on"
+        ]
       end
       db.vm.provision "shell", privileged: false, path: "provision/mysql/slave#{i}.mysql.sh"
     end
@@ -46,10 +52,13 @@ Vagrant.configure("2") do |config|
       vb.gui = false
       vb.memory = "512"
       vb.cpus = 2
-      vb.customize ["modifyvm", :id, "--ioapic", "on"]
-      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.customize [
+        "modifyvm", :id,
+        "--ioapic", "on",
+        "--cpuexecutioncap", "50",
+        "--natdnshostresolver1", "on",
+        "--natdnsproxy1", "on"
+      ]
     end
     db.vm.provision "shell", privileged: false, path: "provision/redis/master.redis.sh"
   end
@@ -64,10 +73,13 @@ Vagrant.configure("2") do |config|
         vb.gui = false
         vb.memory = "512"
         vb.cpus = 2
-        vb.customize ["modifyvm", :id, "--ioapic", "on"]
-        vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize [
+          "modifyvm", :id,
+          "--ioapic", "on",
+          "--cpuexecutioncap", "50",
+          "--natdnshostresolver1", "on",
+          "--natdnsproxy1", "on"
+        ]
       end
       db.vm.provision "shell", privileged: false, path: "provision/redis/slave.redis.sh"
     end
